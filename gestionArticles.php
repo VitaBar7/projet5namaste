@@ -7,8 +7,7 @@ try{
     die('Erreur : '.$e->getMessage());
 }
 
-$reponse = $bdd->query("SELECT * FROM users");
-
+$reponse = $bdd->query("SELECT * FROM articles");
 ?>
 
 <!doctype html>
@@ -24,7 +23,7 @@ $reponse = $bdd->query("SELECT * FROM users");
   <nav class="navbar" style="background-color: #D8BFD8;">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.php"><img src="assets\img\icons8-home-50.png"></a>
-        <img href="index.php"src= "assets\img\namaste-flor.jpg" alt="logo" class="logo">
+        <img href="index.php" src= "assets\img\namaste-flor.jpg" alt="logo" class="logo">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
@@ -44,30 +43,38 @@ $reponse = $bdd->query("SELECT * FROM users");
     </div>
     </nav>
     <div class="tab-mar">
-    <h1>Utilisateurs:</h1>
+    <h1>Articles:</h1>
     <table class="table table-bordered">
             <tr>
-                <th>#</th>
-                <th>Nom</th>
-                <th>Mail</th>
-                <th>Modifier collaborateur</th>
-                <th>Supprimer collaborateur</th>
+                <th>id</th>
+                <th>Titre</th>
+                <th>Contenu</th>
+                <th>Catégorie</th>
+                <th>Image</th>
+                
+                <th>Modifier</th>
+                <th>Supprimer</th>
             </tr>
-
 
     <?php
     while($donnees = $reponse->fetch()){
-    echo '<tr>';
-    echo '<td>'.$donnees['id'].'</td>';
-    echo '<td>'.$donnees['user_name'].'</td>';
-    echo '<td>'.$donnees['user_mail'].'</td>';
-    echo '<td><a class="btn" href="updateUser.php?id='.$donnees['id'].'">Modifier</a></td>';
-    echo '<td><a class="btn" href="deleteUser.php?id='.$donnees['id'].'">Supprimer</a></td>';
-    echo '</tr>';
-}
-?>
-</table>
-</div>
+      $text = nl2br($donnees['contenu']);
+      $text = substr($text, 0, 60);
+      $text = $text.'...';
+        echo '<tr>';
+        echo '<td>'.$donnees['id'].'</td>';
+        echo '<td>'.$donnees['titre'].'</td>';
+        echo '<td>'.$text.'</td>';
+        echo '<td>'.$donnees['categorie'].'</td>';
+        echo '<td><img class="img-xs" src="'.$donnees['image'].'" alt="'.$donnees['titre'].'" width="50px" height="50px"></td>';
+        
+        echo '<td><a class="btn" href="updateArticles.php?id='.$donnees['id'].'">Modifier</a></td>';
+        echo '<td><a class="btn" href="updateArticles.php?id='.$donnees['id'].'">Supprimer</a></td>';
+        echo '</tr>';
+    }
+    ?>
+    </table>
+  </div>
 
 <footer class="bg-dark text-center text-white">
   <!-- Grid container -->
