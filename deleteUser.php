@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 
@@ -11,23 +12,22 @@ if(isset($_GET['id'])){
     $id = $_GET['id'];
 
     if(isset($_POST['submit'])){
-        $titre = $_POST['titre'];
-        $contenu = $_POST['contenu'];
-        $categorie = $_POST['categorie'];
-        $image = $_POST['image'];
-        $sql = "UPDATE articles SET titre = '$titre', contenu = '$contenu', categorie = '$categorie', image = '$image' WHERE id= $id";
+        $user_name = $_POST['user_name'];
+        $user_mail = $_POST['user_mail'];
+        $password = $_POST['password'];
+        $sql = "DELETE FROM users WHERE id= $id";
+        echo $sql;
         $reponse = $bdd->query($sql);
-        header("location: gestionArticles.php");
+        header("location: users.php");
     }
 
-
-    $reponse = $bdd->query("SELECT * FROM articles WHERE id=$id ");
+    $reponse = $bdd->query("SELECT * FROM users WHERE id=$id ");
     $donnees = $reponse->fetch();
-
 }
 
-?>
 
+
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -36,9 +36,9 @@ if(isset($_GET['id'])){
     <title>Namasté</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-  <nav class="navbar" style="background-color: #D8BFD8;">
+</head>
+    <body>
+    <nav class="navbar" style="background-color: #D8BFD8;">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.php"><img src="assets\img\icons8-home-50.png"></a>
         <img href="index.php" src= "assets\img\namaste-flor.jpg" alt="logo" class="logo">
@@ -60,35 +60,34 @@ if(isset($_GET['id'])){
         </div>
     </div>
     </nav>
+    
+        <h1>Confirmer la suppression :</h1>
+        <div class="container">
+            <form class="row g-3" action="deleteUser.php?id=<?php echo $id;?>" method="post">
+            <div class="col-auto">
+                <label for="inputName2" class="visually-hidden">*</label>
+                <input type="text" name= "user_name" class="form-control" id="inputName2" placeholder="Prénom Nom" value="<?php echo $donnees['user_name'];?>">
+            </div>
+            <br>
+            <div class="col-auto">
+                <label for="inputEmail2" class="visually-hidden">*</label>
+                <input type="text" name= "user_mail" class="form-control" id="inputEmail2" placeholder="email@example.com" value="<?php echo $donnees['user_mail'];?>" >
+            </div>
+            <br>
+            <div class="col-auto">
+                <label for="inputPassword2" class="visually-hidden">*</label>
+                <input type="password" name="password" class="form-control" id="inputPassword2" placeholder="Password" value="<?php echo $donnees['password'];?>">
+            </div>
+            <div class="col-auto">
+                <button type="submit" name="submit" class="btn btn-primary mb-3">Supprimer</button>
+            </div>
+            </form>
+        </div>
 
-    <div class="container_form_article form_size">
-        <form class="mb-3" action="updateArticles.php?id=<?php echo $id;?>" method="post">
-        <div class="titre">
-        <label for="InputTitre" class="form-label">Titre</label>
-        <input type="text"name="titre" class="form-control" id="InputTitre" placeholder="titre" value="<?php echo $donnees['titre'];?>" required>
-        </div>
-        <div class="image">
-        <label for="InputImage" class="form-label">Image URL</label>
-        <input name="image" type="text" class="form-control" id="InputImage" placeholder="URL" value="<?php echo $donnees['image'];?>" required>
-        </div>
-        <select name="categorie" class="form-select" aria-label="Default select example">
-            <option selected>Choisir catégorie</option>
-            <option value="Recettes">Recettes</option>
-            <option value="Bien-être">Bien-être</option>
-        </select>
-        <div class="mb-3">
-        <label for="TextareaContenu" class="form-label">Contenu</label>
-        <textarea name="contenu" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Ici le contenu de l'article..." value="<?php echo $donnees['contenu'];?>"></textarea>
-        </div>
-        
-        <div class="col-auto">
-            <button type="submit" name= "submit" class="btn btn-primary mb-3">Modifier</button>
-        </div>
-        
-        </form>
-    </div>
+
+          
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
    
-   </body>
-   
- </html>
+  </body>
+  
+</html>

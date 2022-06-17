@@ -41,8 +41,8 @@ if(isset($_GET['id'])){
     <body>
     <nav class="navbar" style="background-color: #D8BFD8;">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">⌂</a>
-        <img href="#" src= "assets\img\namaste-flor.jpg" alt="logo" class="logo">
+        <a class="navbar-brand" href="index.php"><img src="assets\img\icons8-home-50.png"></a>
+        <img href="index.php" src= "assets\img\namaste-flor.jpg" alt="logo" class="logo">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>

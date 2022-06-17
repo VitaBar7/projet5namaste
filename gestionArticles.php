@@ -1,15 +1,13 @@
 <?php
 session_start();
 
-		try{
-			$bdd = new PDO('mysql:host=localhost;dbname=projet5descodeuses;charset=utf8','root','');
-		}catch(Exception $e){
-			die('Erreur : '.$e->getMessage());
-		}
+try{
+    $bdd = new PDO('mysql:host=localhost;dbname=projet5descodeuses;charset=utf8','root','');
+}catch(Exception $e){
+    die('Erreur : '.$e->getMessage());
+}
 
-
-        $reponse = $bdd->query("SELECT * FROM articles WHERE categorie='Recettes'");
-
+$reponse = $bdd->query("SELECT * FROM articles");
 ?>
 
 <!doctype html>
@@ -22,7 +20,7 @@ session_start();
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <nav class="navbar" style="background-color: #D8BFD8;">
+  <nav class="navbar" style="background-color: #D8BFD8;">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.php"><img src="assets\img\icons8-home-50.png"></a>
         <img href="index.php" src= "assets\img\namaste-flor.jpg" alt="logo" class="logo">
@@ -44,32 +42,39 @@ session_start();
         </div>
     </div>
     </nav>
-    <h1>Notre selection de recettes:</h1>
-    
-    
-    <?='<div class="row">'; ?>
-         
-    <?php   
-    while ($donnees = $reponse->fetch()) {
-        $text = nl2br($donnees['contenu']);
-        $text = substr($text, 0, 250);
-        $text = $text.'...';
+    <div class="tab-mar">
+    <h1>Articles:</h1>
+    <table class="table table-bordered">
+            <tr>
+                <th>id</th>
+                <th>Titre</th>
+                <th>Contenu</th>
+                <th>Catégorie</th>
+                <th>Image</th>
+                
+                <th>Modifier</th>
+                <th>Supprimer</th>
+            </tr>
+
+    <?php
+    while($donnees = $reponse->fetch()){
+      $text = nl2br($donnees['contenu']);
+      $text = substr($text, 0, 60);
+      $text = $text.'...';
+        echo '<tr>';
+        echo '<td>'.$donnees['id'].'</td>';
+        echo '<td>'.$donnees['titre'].'</td>';
+        echo '<td>'.$text.'</td>';
+        echo '<td>'.$donnees['categorie'].'</td>';
+        echo '<td><img class="img-xs" src="'.$donnees['image'].'" alt="'.$donnees['titre'].'" width="50px" height="50px"></td>';
         
-        ?>
-        
-            <div class ="col-sm-4">
-              <div class="card" style="width: 24rem;">
-                    <img src="<?php echo $donnees['image']; ?>" class="card-img-top img-size" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title"><?php echo $donnees['titre']; ?></h5>
-                        <p class="card-text card-index"><?php echo $text; ?></p>
-                        <a href="article.php?id=<?php echo $donnees['id'];?>" class="btn btn-primary">Lire la suite</a>
-                    </div>
-                </div>
-             </div>
-        
-    <?php } ?>
-    <?='</div>'; ?>  
+        echo '<td><a class="btn" href="updateArticles.php?id='.$donnees['id'].'">Modifier</a></td>';
+        echo '<td><a class="btn" href="updateArticles.php?id='.$donnees['id'].'">Supprimer</a></td>';
+        echo '</tr>';
+    }
+    ?>
+    </table>
+  </div>
 
 <footer class="bg-dark text-center text-white">
   <!-- Grid container -->
@@ -118,8 +123,6 @@ session_start();
   <!-- Copyright -->
 </footer>
        
-   
-    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
    
   </body>
