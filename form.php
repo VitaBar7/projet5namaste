@@ -7,17 +7,11 @@ try{
     die('Erreur : '.$e->getMessage());
 }
 
-if (isset($_POST['submit'])) {
-    $email= $_POST['user_mail'];
-    $password= $_POST['password'];
-    $name= $_POST['user_name'];
+$email= $_POST['user_mail'];
+$password= $_POST['password'];
+$name= $_POST['user_name'];
 
-    $reponse = $bdd->query("INSERT INTO users (user_name, user_mail, password) VALUES ('$name', '$email', '$password')");
-}
-
-
-/*$reponse = $bdd->query("SELECT * FROM users WHERE user_mail='$email' AND password='$password'");*/
-
+$reponse = $bdd->query("SELECT * FROM users WHERE user_mail='$email' AND password='$password'");
 ?>
 <!doctype html>
 <html lang="en">
@@ -31,15 +25,15 @@ if (isset($_POST['submit'])) {
     <body>
     <nav class="navbar" style="background-color: #D8BFD8;">
     <div class="container-fluid">
-        <a class="navbar-brand" href="index.php"><img src="assets\img\icons8-home-50.png"></a>
-        <img href="index.php" src= "assets\img\namaste-flor.jpg" alt="logo" class="logo">
+        <a class="navbar-brand" href="#">⌂</a>
+        <img href="#" src= "assets\img\namaste-flor.jpg" alt="logo" class="logo">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#"><img src="assets\img\icons8-home-50.png"></a>
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="#">Recettes</a>
@@ -76,57 +70,56 @@ if (isset($_POST['submit'])) {
         </div>
 
         <?php
-        
-        /*$reponse = $bdd->query("INSERT INTO users (user_name, user_mail, password) VALUES ('$name', '$email', '$password')");*/
+        $reponse = $bdd->query("INSERT INTO users (user_name, user_mail, password) VALUES ('$name', '$email', '$password')");
       
         ?>
 
-    <footer class="bg-dark text-center text-white">
-    <!-- Grid container -->
-    <div class="container p-4 pb-0">
-        <!-- Section: Social media -->
-        <section class="mb-4">
-        <!-- Facebook -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-            ><i class="fab fa-facebook-f"></i
-        ></a>
+<footer class="bg-dark text-center text-white">
+  <!-- Grid container -->
+ <div class="container p-4 pb-0">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Facebook -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-facebook-f"></i
+      ></a>
 
-        <!-- Twitter -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-            ><i class="fab fa-twitter"></i
-        ></a>
+      <!-- Twitter -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-twitter"></i
+      ></a>
 
-        <!-- Google -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-            ><i class="fab fa-google"></i
-        ></a>
+      <!-- Google -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-google"></i
+      ></a>
 
-        <!-- Instagram -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-            ><i class="fab fa-instagram"></i
-        ></a>
+      <!-- Instagram -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-instagram"></i
+      ></a>
 
-        <!-- Linkedin -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-            ><i class="fab fa-linkedin-in"></i
-        ></a>
+      <!-- Linkedin -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-linkedin-in"></i
+      ></a>
 
-        <!-- Github -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-            ><i class="fab fa-github"></i
-        ></a>
-        </section>
-        <!-- Section: Social media -->
-    </div>
-    <!-- Grid container -->
+      <!-- Github -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-github"></i
+      ></a>
+    </section>
+    <!-- Section: Social media -->
+  </div>
+  <!-- Grid container -->
 
-    <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-        © 2020 Copyright:
-        <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-    </div>
-    <!-- Copyright -->
-    </footer>
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2020 Copyright:
+    <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
           
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
    

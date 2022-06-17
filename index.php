@@ -1,5 +1,5 @@
 
-<?php
+<?php add
 session_start();
 
 		try{
@@ -24,8 +24,8 @@ session_start();
   <body>
     <nav class="navbar" style="background-color: #D8BFD8;">
     <div class="container-fluid">
-        <a class="navbar-brand" href="index.php"><img src="assets\img\icons8-home-50.png"></a>
-        <img href="index.php"src= "assets\img\namaste-flor.jpg" alt="logo" class="logo">
+        <a class="navbar-brand" href="#"><img src="assets\img\icons8-home-50.png"></a>
+        <img href="#" src= "assets\img\namaste-flor.jpg" alt="logo" class="logo">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
@@ -35,42 +35,38 @@ session_start();
             <a class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="recettes.php">Recettes</a>
+            <a class="nav-link" href="#">Recettes</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="bienEtre.php">Bien-Être</a>
+            <a class="nav-link" href="#">Bien-Être</a>
             </li>
         </ul>
         </div>
     </div>
     </nav>
-    <div class="h1">
-      <h1>Bienvenues à Namasté, notre site de recettes et bien-être !</h1>
-      <h2>Voici nos derniers articles:</h2>
-    </div>
+    <h1>Nos derniers articles:</h1>
     
 
     <?php
     
-    $reponse = $bdd->query("SELECT * FROM articles LIMIT 9");?>
+    $reponse = $bdd->query("SELECT * FROM articles LIMIT 6");?>
     
     <?='<div class="row">'; ?>
          
     <?php   
     while ($donnees = $reponse->fetch()) {
         $text = nl2br($donnees['contenu']);
-        $text = substr($text, 0, 200);
-        $text = $text.'...';
+        $text = substr($text, 0, 150);
         
         ?>
         
-            <div class ="col-sm-3">
-              <div class="card" style="width: 24rem;">
+            <div class ="col-sm-4">
+              <div class="card" style="width: 18rem;">
                     <img src="<?php echo $donnees['image']; ?>" class="card-img-top img-size" alt="...">
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $donnees['titre']; ?></h5>
-                        <p class="card-text card-index"><?php echo $text; ?></p>
-                        <a href="article.php?id=<?php echo $donnees['id'];?>" class="btn btn-primary">Lire la suite</a>
+                        <p class="card-text"><?php echo $text; ?></p>
+                        <a href="#" class="btn btn-primary">Lire la suite</a>
                     </div>
                 </div>
              </div>
@@ -78,7 +74,7 @@ session_start();
     <?php } ?>
     <?='</div>'; ?>  
 
-<footer class="bg-dark text-center text-white">
+    <footer class="bg-dark text-center text-white">
   <!-- Grid container -->
  <div class="container p-4 pb-0">
     <!-- Section: Social media -->
@@ -122,11 +118,6 @@ session_start();
     © 2020 Copyright:
     <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
   </div>
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-    Home icon by Icons8
-    <a class="text-white" href="https://mdbootstrap.com/">https://icons8.com</a>
-  </div>
-
   <!-- Copyright -->
 </footer>
        

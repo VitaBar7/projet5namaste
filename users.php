@@ -8,7 +8,6 @@ try{
 }
 
 $reponse = $bdd->query("SELECT * FROM users");
-
 ?>
 
 <!doctype html>
@@ -23,8 +22,8 @@ $reponse = $bdd->query("SELECT * FROM users");
   <body>
   <nav class="navbar" style="background-color: #D8BFD8;">
     <div class="container-fluid">
-        <a class="navbar-brand" href="index.php"><img src="assets\img\icons8-home-50.png"></a>
-        <img href="index.php"src= "assets\img\namaste-flor.jpg" alt="logo" class="logo">
+        <a class="navbar-brand" href="#">Home</a>
+        <img href="#" src= "assets\img\namaste-flor.jpg" alt="logo" class="logo">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
@@ -43,31 +42,24 @@ $reponse = $bdd->query("SELECT * FROM users");
         </div>
     </div>
     </nav>
-    <div class="tab-mar">
-    <h1>Utilisateurs:</h1>
-    <table class="table table-bordered">
+
+    <table border="1">
             <tr>
-                <th>#</th>
                 <th>Nom</th>
                 <th>Mail</th>
-                <th>Modifier collaborateur</th>
-                <th>Supprimer collaborateur</th>
+                <th>Pass</th>
             </tr>
-
 
     <?php
     while($donnees = $reponse->fetch()){
-    echo '<tr>';
-    echo '<td>'.$donnees['id'].'</td>';
-    echo '<td>'.$donnees['user_name'].'</td>';
-    echo '<td>'.$donnees['user_mail'].'</td>';
-    echo '<td><a class="btn" href="updateUser.php?id='.$donnees['id'].'">Modifier</a></td>';
-    echo '<td><a class="btn" href="deleteUser.php?id='.$donnees['id'].'">Supprimer</a></td>';
-    echo '</tr>';
-}
-?>
-</table>
-</div>
+        echo '<tr>';
+        echo '<td>'.$donnees['user_name'].'</td>';
+        echo '<td>'.$donnees['user_mail'].'</td>';
+        echo '<td>'.$donnees['password'].'</td>';
+        echo '</tr>';
+    }
+    ?>
+    </table>
 
 <footer class="bg-dark text-center text-white">
   <!-- Grid container -->
