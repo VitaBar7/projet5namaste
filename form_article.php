@@ -30,13 +30,13 @@ try{
         <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="C:\wamp64\www\Projet5\recettes.php">Recettes</a>
+            <a class="nav-link" href="categorie.php?categorie=Recettes">Recettes</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="bien-être.php">Bien-Être</a>
+            <a class="nav-link" href="categorie.php?categorie=Bien-être">Bien-Être</a>
             </li>
         </ul>
         </div>
@@ -52,14 +52,17 @@ try{
         $contenu= $_POST['contenu'];
         $imageURL= $_POST['image'];
         $categorie= $_POST['categorie'];
+        $date= $_POST['date'];
 
-    $sql = "INSERT INTO articles (titre, contenu, image, categorie) VALUES ('$titre', '$contenu', '$imageURL', '$categorie')";
+    $sql = "INSERT INTO articles (titre, contenu, image, categorie, date) VALUES ('$titre', '$contenu', '$imageURL', '$categorie', '$date')";
 
-    var_dump($sql);
-
+    //var_dump($sql);
     $reponse = $bdd->query($sql);
-    }
+    //var_dump($reponse);
     header("location: gestionArticles.php");
+    
+    }
+    
     
     ?>
 
@@ -81,6 +84,10 @@ try{
         <div class="mb-3">
         <label for="TextareaContenu" class="form-label">Contenu</label>
         <textarea name="contenu" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Ici le contenu de l'article..."></textarea>
+        </div>
+        <div class="date">
+        <label for="Inputdate" class="form-label">Date</label>
+        <input type="date" name="date" class="form-control" id="InputDate" placeholder="ici la date">
         </div>
        
         <break></break>

@@ -7,8 +7,13 @@ session_start();
 			die('Erreur : '.$e->getMessage());
 		}
 
+        if(isset($_GET['categorie'])){
+            $categorie = $_GET['categorie'];
+        }else{
+            $categorie = "Bien-être";
+        }
 
-        $reponse = $bdd->query("SELECT * FROM articles WHERE categorie='Recettes'");
+        $reponse = $bdd->query("SELECT * FROM articles WHERE categorie='$categorie'");
 
 ?>
 
@@ -32,19 +37,19 @@ session_start();
         <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#">Recettes</a>
+            <a class="nav-link" href="categorie.php?categorie=Recettes">Recettes</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#">Bien-Être</a>
+            <a class="nav-link" href="categorie.php?categorie=Bien-être">Bien-être</a>
             </li>
         </ul>
         </div>
     </div>
     </nav>
-    <h1>Notre selection de recettes:</h1>
+    <h1>Notre selection de <?php echo $categorie;?> :</h1>
     
     
     <?='<div class="row">'; ?>
