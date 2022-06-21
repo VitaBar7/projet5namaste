@@ -25,20 +25,20 @@ session_start();
     <nav class="navbar" style="background-color: #D8BFD8;">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.php"><img src="assets\img\icons8-home-50.png"></a>
-        <img href="index.php"src= "assets\img\namaste-flor.jpg" alt="logo" class="logo">
+        <a href="index.php"><img src="assets\img\namaste-flor.jpg" alt="logo" class="logo"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="recettes.php">Recettes</a>
+            <a class="nav-link" href="categorie.php?categorie=Recettes">Recettes</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="bienEtre.php">Bien-Être</a>
+            <a class="nav-link" href="categorie.php?categorie=Bien-être">Bien-Être</a>
             </li>
         </ul>
         </div>

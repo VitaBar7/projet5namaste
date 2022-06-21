@@ -41,10 +41,10 @@ session_start();
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">Recettes</a>
+                <a class="nav-link" href="categorie.php?categorie=Recettes">Recettes</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">Bien-Être</a>
+                <a class="nav-link" href="categorie.php?categorie=Bien-être">Bien-être</a>
                 </li>
             </ul>
             </div>

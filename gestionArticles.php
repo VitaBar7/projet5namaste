@@ -30,13 +30,13 @@ $reponse = $bdd->query("SELECT * FROM articles");
         <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#">Recettes</a>
+            <a class="nav-link" href="categorie.php?categorie=Recettes">Recettes</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#">Bien-Être</a>
+            <a class="nav-link" href="categorie.php?categorie=Bien-être">Bien-Être</a>
             </li>
         </ul>
         </div>

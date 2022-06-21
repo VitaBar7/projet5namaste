@@ -61,7 +61,7 @@ $reponse = $bdd->query("SELECT * FROM users");
     echo '<td>'.$donnees['id'].'</td>';
     echo '<td>'.$donnees['user_name'].'</td>';
     echo '<td>'.$donnees['user_mail'].'</td>';
-    echo '<td><a class="btn" href="updateUser.php?id='.$donnees['id'].'">Modifier</a></td>';
+    echo '<td><a class="btn" href="updateUsers.php?id='.$donnees['id'].'">Modifier</a></td>';
     echo '<td><a class="btn" href="deleteUser.php?id='.$donnees['id'].'">Supprimer</a></td>';
     echo '</tr>';
 }

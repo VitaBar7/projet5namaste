@@ -13,6 +13,7 @@ if (isset($_POST['submit'])) {
     $name= $_POST['user_name'];
 
     $reponse = $bdd->query("INSERT INTO users (user_name, user_mail, password) VALUES ('$name', '$email', '$password')");
+    header("location: users.php");
 }
 
 
@@ -39,20 +40,20 @@ if (isset($_POST['submit'])) {
         <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#"><img src="assets\img\icons8-home-50.png"></a>
+            <a class="nav-link active" aria-current="page" href="index.php"><img src="assets\img\icons8-home-50.png"></a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#">Recettes</a>
+            <a class="nav-link" href="categorie.php?categorie=Recettes">Recettes</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#">Bien-Être</a>
+            <a class="nav-link" href="categorie.php?categorie=Bien-être">Bien-Être</a>
             </li>
         </ul>
         </div>
     </div>
     </nav>
     
-        <h1>Formulaire de connexion:</h1>
+        <h1>Formulaire d'ajout de user :</h1>
         <div class="container">
             <form class="row g-3" action="form.php" method="post">
             <div class="col-auto">
@@ -70,7 +71,7 @@ if (isset($_POST['submit'])) {
                 <input type="password" name="password" class="form-control" id="inputPassword2" placeholder="Password" required>
             </div>
             <div class="col-auto">
-                <button type="submit" class="btn btn-primary mb-3">S'inscrire</button>
+                <button type="submit" name="submit" class="btn btn-primary mb-3">S'inscrire</button>
             </div>
             </form>
         </div>
