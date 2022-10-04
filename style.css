@@ -1,3 +1,7 @@
+body {
+    background-image: url("https://i1.wp.com/bluebubbleworld.org/wp-content/uploads/2017/05/oxygen-nature-header.jpg?ssl=1");
+}
+
 .logo {
     width: 150px;
     height: 150px;
@@ -6,7 +10,17 @@
     display: block;
 }
 nav {
-    margin-bottom: 30px;
+    margin-bottom: 50px;
+    
+}
+
+a {
+    color: white;
+}
+
+
+.container-bg {
+    background-color: burlywood;
 }
 
 .card-index {
@@ -32,8 +46,8 @@ nav {
     justify-content: space-around;
 }
 
-.h1 {
-    text-align: center;
+.title {
+    text-align: left;
 }
 
 .form_size {
