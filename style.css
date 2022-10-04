@@ -9,36 +9,52 @@ nav {
     margin-bottom: 30px;
 }
 
-.card p {
+.card-index {
     max-height: 150px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-.row {
+.col-sm-3 {
+    margin-left: 10px;
+    margin-right: 10px;
+} 
 
+.card {
+    margin-bottom: 30px;
+    margin-right: 20px;
+}
+
+.row {
     margin-bottom: 10px;
     margin-top: 50px;
+    justify-content: space-around;
 }
 
 .h1 {
     text-align: center;
-
 }
 
-/*.img-size {
-    
-    max-height: 200px;
-    overflow: hidden;
-    width;
-   
-    
-}*/
+.form_size {
+    margin-left: 100px;
+    margin-right: 100px;
+}
 
-.footer {
-    margin-top: 100px;
-    margin-bottom: 50px;
+.img-xs {
+    border-radius: 50px;
+}
+
+.tab-mar {
+    margin: 30px;
+}
+.btn mb-3 {
+    margin-top: 10px;
+}
+
+footer {
+    margin-top: 200px;
+    margin-bottom: 0px;
 }
 
 

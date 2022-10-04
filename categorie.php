@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 
@@ -8,7 +7,13 @@ session_start();
 			die('Erreur : '.$e->getMessage());
 		}
 
-        $reponse = $bdd->query("SELECT * FROM articles");
+        if(isset($_GET['categorie'])){
+            $categorie = $_GET['categorie'];
+        }else{
+            $categorie = "Bien-être";
+        }
+
+        $reponse = $bdd->query("SELECT * FROM articles WHERE categorie='$categorie'");
 
 ?>
 
@@ -25,7 +30,7 @@ session_start();
     <nav class="navbar" style="background-color: #D8BFD8;">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.php"><img src="assets\img\icons8-home-50.png"></a>
-        <a href="index.php"><img src="assets\img\namaste-flor.jpg" alt="logo" class="logo"></a>
+        <img href="index.php" src= "assets\img\namaste-flor.jpg" alt="logo" class="logo">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
@@ -38,33 +43,26 @@ session_start();
             <a class="nav-link" href="categorie.php?categorie=Recettes">Recettes</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="categorie.php?categorie=Bien-être">Bien-Être</a>
+            <a class="nav-link" href="categorie.php?categorie=Bien-être">Bien-être</a>
             </li>
         </ul>
         </div>
     </div>
     </nav>
-    <div class="h1">
-      <h1>Bienvenues à Namasté, notre site de recettes et bien-être !</h1>
-      <h2>Voici nos derniers articles:</h2>
-    </div>
+    <h1>Notre selection de <?php echo $categorie;?> :</h1>
     
-
-    <?php
-    
-    $reponse = $bdd->query("SELECT * FROM articles LIMIT 9");?>
     
     <?='<div class="row">'; ?>
          
     <?php   
     while ($donnees = $reponse->fetch()) {
         $text = nl2br($donnees['contenu']);
-        $text = substr($text, 0, 200);
+        $text = substr($text, 0, 250);
         $text = $text.'...';
         
         ?>
         
-            <div class ="col-sm-3">
+            <div class ="col-sm-4">
               <div class="card" style="width: 24rem;">
                     <img src="<?php echo $donnees['image']; ?>" class="card-img-top img-size" alt="...">
                     <div class="card-body">
@@ -122,11 +120,6 @@ session_start();
     © 2020 Copyright:
     <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
   </div>
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-    Home icon by Icons8
-    <a class="text-white" href="https://mdbootstrap.com/">https://icons8.com</a>
-  </div>
-
   <!-- Copyright -->
 </footer>
        
