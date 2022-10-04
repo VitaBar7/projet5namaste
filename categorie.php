@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 
@@ -8,36 +7,34 @@ session_start();
 			die('Erreur : '.$e->getMessage());
 		}
 
-        $reponse = $bdd->query("SELECT * FROM articles");
+        if(isset($_GET['categorie'])){
+            $categorie = $_GET['categorie'];
+        }else{
+            $categorie = "Bien-être";
+        }
+
+        $reponse = $bdd->query("SELECT * FROM articles WHERE categorie='$categorie'");
 
 ?>
-
 <?php
 include 'head.php';
 include 'navbar.php';
 ?>
-  <div class="container container-bg">
-    <div class="title">
-      <h1>Bienvenues à Namasté</h1>
-      
-      <h2>Voici nos derniers articles:</h2>
-    </div>
-
-    <?php
-    $reponse = $bdd->query("SELECT * FROM articles LIMIT 9");?>
+    <h1>Notre selection de <?php echo $categorie;?> :</h1>
+    
     
     <?='<div class="row">'; ?>
          
     <?php   
     while ($donnees = $reponse->fetch()) {
         $text = nl2br($donnees['contenu']);
-        $text = substr($text, 0, 200);
+        $text = substr($text, 0, 250);
         $text = $text.'...';
         
-        ?>
-
-            <div class ="col-sm-3">
-              <div class="card" style="width: 18rem;">
+    ?>
+        
+            <div class ="col-sm-4">
+              <div class="card" style="width: 24rem;">
                     <img src="<?php echo $donnees['image']; ?>" class="card-img-top img-size" alt="...">
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $donnees['titre']; ?></h5>
@@ -49,8 +46,7 @@ include 'navbar.php';
         
     <?php } ?>
     <?='</div>'; ?>  
-  </div>
+
 <?php
 include 'footer.php';
 ?>
-

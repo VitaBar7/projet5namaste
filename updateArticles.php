@@ -15,7 +15,8 @@ if(isset($_GET['id'])){
         $contenu = $_POST['contenu'];
         $categorie = $_POST['categorie'];
         $image = $_POST['image'];
-        $sql = "UPDATE articles SET titre = '$titre', contenu = '$contenu', categorie = '$categorie', image = '$image' WHERE id= $id";
+        $date = $_POST['date'];
+        $sql = "UPDATE articles SET titre = '$titre', contenu = '$contenu', categorie = '$categorie', image = '$image', date = '$date' WHERE id= $id";
         $reponse = $bdd->query($sql);
         header("location: gestionArticles.php");
     }
@@ -65,7 +66,7 @@ if(isset($_GET['id'])){
         <form class="mb-3" action="updateArticles.php?id=<?php echo $id;?>" method="post">
         <div class="titre">
         <label for="InputTitre" class="form-label">Titre</label>
-        <input type="text"name="titre" class="form-control" id="InputTitre" placeholder="titre" value="<?php echo $donnees['titre'];?>" required>
+        <input type="text" name="titre" class="form-control" id="InputTitre" placeholder="titre" value="<?php echo $donnees['titre'];?>" required>
         </div>
         <div class="image">
         <label for="InputImage" class="form-label">Image URL</label>
@@ -73,22 +74,25 @@ if(isset($_GET['id'])){
         </div>
         <select name="categorie" class="form-select" aria-label="Default select example">
             <option selected>Choisir catégorie</option>
-            <option value="Recettes">Recettes</option>
-            <option value="Bien-être">Bien-être</option>
+            <option value="Recettes" <?php if($donnees['categorie'] == 'Recettes') echo 'selected';?>>Recettes</option>
+            <option value="Bien-être" <?php if($donnees['categorie'] == 'Bien-être') echo 'selected';?>>Bien-être</option>
         </select>
         <div class="mb-3">
         <label for="TextareaContenu" class="form-label">Contenu</label>
-        <textarea name="contenu" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Ici le contenu de l'article..." value="<?php echo $donnees['contenu'];?>"></textarea>
+        <textarea name="contenu" class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Ici le contenu de l'article..."><?php echo $donnees['contenu'];?></textarea>
         </div>
-        
+        <div class="date">
+        <label for="Inputdate" class="form-label">Date</label>
+        <input type="date" name="date" class="form-control" id="InputDate" placeholder="ici la date" value="<?php echo $donnees['date'];?>" required>
+        </div>
         <div class="col-auto">
             <button type="submit" name= "submit" class="btn btn-primary mb-3">Modifier</button>
         </div>
+        <div class="col-auto">
+            <a class="btn" href="deleteArticle.php?id=<?php echo $id;?>">Supprimer</a>
+        </div>
         
         </form>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-   
-   </body>
-   
- </html>
+<?php
+include 'footer.php';
+?>
