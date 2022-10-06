@@ -24,7 +24,7 @@ include 'navbar.php';
 ?>
     
         <h1>Formulaire d'ajout utilisateur :</h1>
-        <div class="container">
+        <div class="container container-bg form_size">
             <form class="row g-3" action="form.php" method="post">
             <div class="col-auto">
                 <label for="inputName2" class="visually-hidden">*</label>

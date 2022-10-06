@@ -14,8 +14,8 @@ $reponse = $bdd->query("SELECT * FROM articles");
 include 'head.php';
 include 'navbar.php';
 ?>
-
-    <div class="tab-mar">
+  
+  <div class="tab-mar container container-bg">
     <h1>Articles:</h1>
     <table class="table table-bordered">
             <tr>
@@ -42,7 +42,7 @@ include 'navbar.php';
         echo '<td><img class="img-xs" src="'.$donnees['image'].'" alt="'.$donnees['titre'].'" width="50px" height="50px"></td>';
         
         echo '<td><a class="btn" href="updateArticles.php?id='.$donnees['id'].'">Modifier</a></td>';
-        echo '<td><a class="btn" href="updateArticles.php?id='.$donnees['id'].'">Supprimer</a></td>';
+        echo '<td><a class="btn" href="deleteArticle.php?id='.$donnees['id'].'">Supprimer</a></td>';
         echo '</tr>';
     }
     ?>

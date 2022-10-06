@@ -27,8 +27,10 @@ if(isset($_GET['id'])){
 
 }
 
+include 'head.php';
+include 'navbar.php';
 ?>
-
+<!-- 
 <!doctype html>
 <html lang="en">
   <head>
@@ -60,39 +62,40 @@ if(isset($_GET['id'])){
         </ul>
         </div>
     </div>
-    </nav>
+    </nav> -->
 
-    <div class="container_form_article form_size">
+    <div class="container container-bg form_size">
         <form class="mb-3" action="updateArticles.php?id=<?php echo $id;?>" method="post">
-        <div class="titre">
-        <label for="InputTitre" class="form-label">Titre</label>
-        <input type="text" name="titre" class="form-control" id="InputTitre" placeholder="titre" value="<?php echo $donnees['titre'];?>" required>
-        </div>
-        <div class="image">
-        <label for="InputImage" class="form-label">Image URL</label>
-        <input name="image" type="text" class="form-control" id="InputImage" placeholder="URL" value="<?php echo $donnees['image'];?>" required>
-        </div>
-        <select name="categorie" class="form-select" aria-label="Default select example">
-            <option selected>Choisir catégorie</option>
-            <option value="Recettes" <?php if($donnees['categorie'] == 'Recettes') echo 'selected';?>>Recettes</option>
-            <option value="Bien-être" <?php if($donnees['categorie'] == 'Bien-être') echo 'selected';?>>Bien-être</option>
-        </select>
-        <div class="mb-3">
-        <label for="TextareaContenu" class="form-label">Contenu</label>
-        <textarea name="contenu" class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Ici le contenu de l'article..."><?php echo $donnees['contenu'];?></textarea>
-        </div>
-        <div class="date">
-        <label for="Inputdate" class="form-label">Date</label>
-        <input type="date" name="date" class="form-control" id="InputDate" placeholder="ici la date" value="<?php echo $donnees['date'];?>" required>
-        </div>
-        <div class="col-auto">
-            <button type="submit" name= "submit" class="btn btn-primary mb-3">Modifier</button>
-        </div>
-        <div class="col-auto">
-            <a class="btn" href="deleteArticle.php?id=<?php echo $id;?>">Supprimer</a>
-        </div>
+            <div class="titre">
+                <label for="InputTitre" class="form-label">Titre</label>
+                <input type="text" name="titre" class="form-control" id="InputTitre" placeholder="titre" value="<?php echo $donnees['titre'];?>" required>
+            </div>
+            <div class="image">
+                <label for="InputImage" class="form-label">Image URL</label>
+                <input name="image" type="text" class="form-control" id="InputImage" placeholder="URL" value="<?php echo $donnees['image'];?>" required>
+            </div>
+            <select name="categorie" class="form-select" aria-label="Default select example">
+                <option selected>Choisir catégorie</option>
+                <option value="Recettes" <?php if($donnees['categorie'] == 'Recettes') echo 'selected';?>>Recettes</option>
+                <option value="Bien-être" <?php if($donnees['categorie'] == 'Bien-être') echo 'selected';?>>Bien-être</option>
+            </select>
+            <div class="mb-3">
+                <label for="TextareaContenu" class="form-label">Contenu</label>
+                <textarea name="contenu" class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Ici le contenu de l'article..."><?php echo $donnees['contenu'];?></textarea>
+            </div>
+            <div class="date">
+                <label for="Inputdate" class="form-label">Date</label>
+                <input type="date" name="date" class="form-control" id="InputDate" placeholder="ici la date" value="<?php echo $donnees['date'];?>" required>
+            </div>
+            <div class="col-auto">
+                <button type="submit" name= "submit" class="btn btn-success mb-3">Modifier</button>
+            </div>
+            <div class="col-auto">
+                <a class="btn btn-danger" href="deleteArticle.php?id=<?php echo $id;?>">Supprimer</a>
+            </div>
         
         </form>
+    </div>    
 <?php
 include 'footer.php';
 ?>

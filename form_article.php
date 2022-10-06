@@ -35,7 +35,7 @@ include 'head.php';
 include 'navbar.php';
 ?>
 
-    <div class="container_form_article form_size">
+    <div class="container container-bg form_size">
         <form class="mb-3" action="form_article.php" method="post">
             <div class="titre">
                 <label for="InputTitre" class="form-label">Titre</label>
