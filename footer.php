@@ -5,44 +5,39 @@
     <section class="mb-4">
       <!-- Facebook -->
       <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-facebook-f"></i
-      ></a>
+        ><img src="https://img.icons8.com/doodle/48/000000/facebook-new.png"/></a>
 
       <!-- Twitter -->
       <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-twitter"></i
-      ></a>
+        ><img src="https://img.icons8.com/doodle/48/000000/twitter-squared.png"/></a>
 
-      <!-- Google -->
+      <!-- Google
       <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
         ><i class="fab fa-google"></i
-      ></a>
+      ></a> -->
 
       <!-- Instagram -->
       <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-instagram"></i
-      ></a>
+        ><img src="https://img.icons8.com/doodle/48/000000/instagram-new.png"/></a>
 
       <!-- Linkedin -->
       <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-linkedin-in"></i
-      ></a>
+        ><img src="https://img.icons8.com/doodle/48/000000/linkedin--v2.png"/></a>
 
       <!-- Github -->
       <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-github"></i
-      ></a>
+        ><img src="https://img.icons8.com/doodle/48/000000/github--v1.png"/></a>
     </section>
     <!-- Section: Social media -->
   </div>
   <!-- Grid container -->
 
   <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+  <div class="text-center p-3" style="background-color: rgb(98, 116, 99);">
     © 2020 Copyright:
     <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
   </div>
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+  <div class="text-center p-3" style="background-color: rgb(98, 116, 99);">
     Home icon by Icons8
     <a class="text-white" href="https://mdbootstrap.com/">https://icons8.com</a>
   </div>

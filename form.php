@@ -23,9 +23,9 @@ include 'head.php';
 include 'navbar.php';
 ?>
     
-        <h1>Formulaire d'ajout utilisateur :</h1>
+        <h1 class="container">Formulaire d'ajout utilisateur :</h1>
         <div class="container container-bg form_size">
-            <form class="row g-3" action="form.php" method="post">
+            <form class="row pb-9 g-3" action="form.php" method="post">
             <div class="col-auto">
                 <label for="inputName2" class="visually-hidden">*</label>
                 <input type="text" name= "user_name" class="form-control" id="inputName2" placeholder="Prénom Nom" required>
@@ -41,7 +41,7 @@ include 'navbar.php';
                 <input type="password" name="password" class="form-control" id="inputPassword2" placeholder="Password" required>
             </div>
             <div class="col-auto">
-                <button type="submit" name="submit" class="btn btn-primary mb-3">S'inscrire</button>
+                <button type="submit" name="submit" class="btn btn-success mb-3">S'inscrire</button>
             </div>
             </form>
         </div>

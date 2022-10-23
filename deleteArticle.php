@@ -12,22 +12,13 @@ try{
 if(isset($_GET['id'])){
     $id = $_GET['id'];
 
-    if(isset($_POST['submit'])){
-        $titre = $_POST['titre'];
-        $contenu = $_POST['contenu'];
-        $categorie = $_POST['categorie'];
-        $image = $_POST['image'];
-        $date = $_POST['date'];
-        $sql = "DELETE FROM articles WHERE id= $id";
-        echo $sql;
-        $reponse = $bdd->query($sql);
-        header("location: gestionArticles.php");
-    }
-    
-    $reponse = $bdd->query("SELECT * FROM articles WHERE id=$id ");
-    $donnees = $reponse->fetch();
-    
+    $del_article = $bdd->prepare("DELETE FROM articles WHERE id= $id");
+    $del_article->execute(array($id));
+    header("location: gestionArticles.php");
+} else {
+    echo "...";
 }
+    
 ?>
 
 <?php
@@ -36,9 +27,9 @@ include 'navbar.php';
 ?>
 
     <div class="container_form_article form_size">
-        <h1>Confirmer la suppression :</h1>
+        <h3>Confirmer la suppression :</h3>
         <form class="mb-3" action="deleteArticles.php?id=<?php echo $id;?>" method="post">
-            <div class="titre">
+            <!-- <div class="titre">
                 <label for="InputTitre" class="form-label">Titre</label>
                 <input type="text" name="titre" class="form-control" id="InputTitre" placeholder="titre" value="<?php echo $donnees['titre'];?>" required>
             </div>
@@ -62,7 +53,7 @@ include 'navbar.php';
             <div class="col-auto">
                 <button type="submit" name= "submit" class="btn btn-primary mb-3">Modifier</button>
             </div>
-            <h4>Vous êtes sûr de vouloir supprimer?</h4>
+            <h4>Vous êtes sûr de vouloir supprimer?</h4> -->
             <div class="col-auto">
                 <button type="submit" name="submit" class="btn btn-danger mb-3">Supprimer</button>
             </div>
