@@ -14,11 +14,15 @@ h1, h2 {
 
 h2 {
     font-size: 2.2rem;
+    letter-spacing: 1.8px;
     padding-bottom: 10px;
     text-align: center;
     padding-top: 10px;
-    background-color: rgb(250, 226, 194);
+}
 
+.recommended:hover {
+    box-shadow: 1px 1px 2px rgb(98, 116, 99);
+    
 }
 
 .subtitle {
@@ -43,11 +47,11 @@ a {
     text-decoration: none;
 }
 
-.aside {
+/* .aside {
     top: 10px;
     right: 20px;
     width: 80px;
-}
+} */
 
 .container-bg {
     background-color: rgb(250, 226, 194);
@@ -73,10 +77,19 @@ a {
     margin-right: 20px;
 }
 
-.row {
+.card:hover {
+    box-shadow: 2px 2px 3.5px grey;
+}
+
+#cards {
     margin-bottom: 10px;
     margin-top: 50px;
     justify-content: space-around;
+}
+
+article {
+    padding-bottom: 20px;
+    padding-left: 10px;
 }
 
 .header {
@@ -129,8 +142,13 @@ form input {
     margin-top: 30px;
     border-radius: 10px;
     padding-bottom: 50px;
+    box-shadow: 2px 2px 3.5px grey;
+
 }
 
+.signup {
+    margin-top: 20px;
+}
 .img-xs {
     border-radius: 50px;
 }
@@ -138,13 +156,25 @@ form input {
 .tab-mar {
     margin: 30px;
 }
-.btn {
+/* .btn {
     margin-top: 10px;
-}
+} */
 
 footer {
-    margin-top: 200px;
+    background-color:rgb(98, 116, 99);
+    margin-top: 100px;
     margin-bottom: 0px;
+}
+
+#add {
+    max-width: 150px;
+    max-height: 40px;
+    justify-content: center;
+}
+#list-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 /* span {

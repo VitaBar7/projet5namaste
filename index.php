@@ -51,7 +51,7 @@ include 'navbar.php';
     <?php
     $reponse = $bdd->query("SELECT * FROM articles LIMIT 9");?>
     
-    <?='<div class="row">'; ?>
+    <?='<div id="cards" class="row">'; ?>
          
     <?php   
     while ($donnees = $reponse->fetch()) {

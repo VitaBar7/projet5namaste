@@ -41,7 +41,7 @@ include 'navbar.php';
                 <input type="password" name="password" class="form-control" id="inputPassword2" placeholder="Password" required>
             </div>
             <div class="col-auto">
-                <button type="submit" name="submit" class="btn btn-success mb-3">S'inscrire</button>
+                <button type="submit" name="submit" class="btn btn-success mb-3 signup">S'inscrire</button>
             </div>
             </form>
         </div>

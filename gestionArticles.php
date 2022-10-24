@@ -16,7 +16,10 @@ include 'navbar.php';
 ?>
   
   <div class="tab-mar container container-bg">
-    <h1>Articles:</h1>
+    <header id="list-header" class="">
+      <h1>Articles:</h1>
+      <a href="form_article.php" id="add" class="btn btn-success">nouvel article</a>
+    </header>
     <table class="table table-bordered">
             <tr>
                 <th>id</th>
